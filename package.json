@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "name": "doctop",
+  "version": "0.0.1",
+  "description": "This project is a Windows XP–themed documentation website built with plain HTML, CSS, and JavaScript, and served with Express.",
+  "main": "app.js",
+  "devDependencies": {
+    "cross-env": "^10.1.0"
+  },
+  "scripts": {
+    "dev": "cross-env PORT=8080 nodemon app.js",
+    "prod": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRedRish/DocTop.git"
+  },
+  "keywords": [
+    "Notes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheRedRish/DocTop/issues"
+  },
+  "homepage": "https://github.com/TheRedRish/DocTop#readme"
+}

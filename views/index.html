@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XP Documentation Desktop</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="desktop">
+      <!-- Desktop icons -->
+      <div class="desktop-icons">
+        <div class="desktop-icon" data-doc="express">
+          <img
+            src="images/icon-doc.png"
+            alt="Express Documentation"
+            class="icon-image"
+          />
+          <span class="icon-label">Express</span>
+        </div>
+      </div>
+
+      <!-- Open Window -->
+      <div class="window" data-doc="express" style="top: 120px; left: 180px">
+        <div class="window-header">
+          <span class="window-title">Express Documentation</span>
+          <div class="window-controls">
+            <button class="minimize-btn">_</button>
+            <button class="maximize-btn">☐</button>
+            <button class="close-btn">X</button>
+          </div>
+        </div>
+
+        <div class="window-toolbar">
+          <button>File</button>
+          <button>Edit</button>
+          <button>View</button>
+          <button>Help</button>
+        </div>
+
+        <div class="window-content">
+          <div class="documentation">
+            <h1>Express</h1>
+            <h2>Server-Side Web Framework</h2>
+
+            <section class="doc-section">
+              <h3>Introduction</h3>
+              <p>
+                Express is a minimal and flexible Node.js web framework that
+                provides a robust set of features for building web and mobile
+                applications. It simplifies server setup and route handling.
+              </p>
+            </section>
+
+            <section class="doc-section">
+              <h3>Example Code</h3>
+              <pre><code>const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));</code></pre>
+            </section>
+
+            <section class="doc-section">
+              <h3>Terminal Commands</h3>
+              <pre><code>npm init -y
+npm install express</code></pre>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taskbar -->
+      <div class="taskbar">
+        <div class="start-button"></div>
+
+        <div class="taskbar-windows">
+          <div class="taskbar-item active">Express</div>
+        </div>
+
+        <div class="taskbar-clock">12:45 PM</div>
+      </div>
+    </div>
+
+    <script>
+      // Simple clock script for realism
+      function updateClock() {
+        const clock = document.querySelector(".taskbar-clock");
+        const now = new Date().toLocaleString("default", {
+          hour: "numeric",
+          minute: "numeric",
+        });
+        clock.textContent = `${now}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
