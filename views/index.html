@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XP Documentation Desktop</title>
+    <title>DocTop — XP Documentation Desktop</title>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css/dist/XP.css" />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
@@ -19,42 +20,34 @@
           <span class="icon-label">Express</span>
         </div>
       </div>
-
-      <!-- Open Window -->
-      <div class="window" data-doc="express" style="top: 120px; left: 180px">
-        <div class="window-header">
-          <span class="window-title">Express Documentation</span>
-          <div class="window-controls">
-            <button class="minimize-btn">_</button>
-            <button class="maximize-btn">☐</button>
-            <button class="close-btn">X</button>
+      <div class="window" style="width: 600px; margin: 60px auto">
+        <div class="title-bar">
+          <div class="title-bar-text">Express Documentation</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
           </div>
         </div>
 
-        <div class="window-toolbar">
-          <button>File</button>
-          <button>Edit</button>
-          <button>View</button>
-          <button>Help</button>
-        </div>
+        <div class="window-body">
+          <div class="field-row-stacked" style="width: 100%">
+            <div class="documentation">
+              <h1>Express</h1>
+              <h2>Server-Side Web Framework</h2>
 
-        <div class="window-content">
-          <div class="documentation">
-            <h1>Express</h1>
-            <h2>Server-Side Web Framework</h2>
+              <section class="doc-section">
+                <h3>Introduction</h3>
+                <p>
+                  Express is a minimal and flexible Node.js web framework that
+                  provides a robust set of features for building web and mobile
+                  applications. It simplifies server setup and route handling.
+                </p>
+              </section>
 
-            <section class="doc-section">
-              <h3>Introduction</h3>
-              <p>
-                Express is a minimal and flexible Node.js web framework that
-                provides a robust set of features for building web and mobile
-                applications. It simplifies server setup and route handling.
-              </p>
-            </section>
-
-            <section class="doc-section">
-              <h3>Example Code</h3>
-              <pre><code>const express = require('express');
+              <section class="doc-section">
+                <h3>Example Code</h3>
+                <pre><code>const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
@@ -62,27 +55,40 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, () => console.log('Server running on port 3000'));</code></pre>
-            </section>
+              </section>
 
-            <section class="doc-section">
-              <h3>Terminal Commands</h3>
-              <pre><code>npm init -y
+              <section class="doc-section">
+                <h3>Terminal Commands</h3>
+                <pre><code>npm init -y
 npm install express</code></pre>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
+
+        <div class="status-bar">
+          <p class="status-bar-field">DocTop</p>
+          <p class="status-bar-field">v1.0</p>
+        </div>
       </div>
+    </div>
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div class="start-button"></div>
 
-      <!-- Taskbar -->
-      <div class="taskbar">
-        <div class="start-button"></div>
-
-        <div class="taskbar-windows">
-          <div class="taskbar-item active">Express</div>
+      <div class="taskbar-windows">
+        <div class="taskbar-item inactive">
+          <img src="images/icons/documents.png" alt="" width="16" height="16" />
+          Folder
         </div>
 
-        <div class="taskbar-clock">12:45 PM</div>
+        <div class="taskbar-item active">
+          <img src="images/icons/notepad.png" alt="" width="16" height="16" />
+          Notes
+        </div>
       </div>
+
+      <div class="taskbar-clock">12:45 PM</div>
     </div>
 
     <script>
