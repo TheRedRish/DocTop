@@ -46,11 +46,12 @@ body {
   font-size: 12px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .desktop-icon img {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
 }
 
 .desktop-icon:hover {
@@ -62,7 +63,10 @@ body {
 /* -------------- WINDOW -------------- */
 .window {
   position: absolute;
-  left: 150px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   min-width: 200px;
   min-height: 150px;
   max-height: 100%;
@@ -73,16 +77,43 @@ body {
   box-sizing: border-box;
 }
 
-.window-content,
+.window.active {
+  box-shadow: inset -1px -1px #00138c, inset 1px 1px #0831d9,
+    inset -2px -2px #001ea0, inset 2px 2px #166aee, inset -3px -3px #003bda,
+    inset 3px 3px #0855dd;
+}
+
+.window.inactive {
+  box-shadow: inset -1px -1px #4a5aa8, inset 1px 1px #5e72c8,
+    inset -2px -2px #5566b8, inset 2px 2px #6f84d6, inset -3px -3px #7b97e0,
+    inset 3px 3px #91aae8;
+}
+
+.window.inactive .title-bar {
+  background: linear-gradient(
+    180deg,
+    #b8c6f0 0%,
+    #9fb2e8 10%,
+    #8ca2e3 45%,
+    #7b97e0 80%,
+    #728edb 90%,
+    #6a86d6 100%
+  );
+  color: #e8e8e8;
+
+  border-top: 1px solid #7b97e0;
+  border-left: 1px solid #7b97e0;
+  border-right: 1px solid #7b97e0;
+}
+
+.title-bar {
+  cursor: move; /* only this area drags */
+}
+
 .window-body {
   flex: 1 1 auto;
   min-height: 0; /* CRUCIAL for flex scroll containers */
   overflow: auto;
-}
-
-.title-bar,
-.window-header {
-  cursor: move; /* only this area drags */
 }
 
 /* Cursor hints for edges */
@@ -227,7 +258,7 @@ body {
 }
 
 .taskbar-clock {
-  width: 90px;
+  width: 60px;
   text-align: center;
   height: 100%;
   display: flex;

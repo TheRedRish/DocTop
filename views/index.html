@@ -20,7 +20,57 @@
           <span class="icon-label">Express</span>
         </div>
       </div>
-      <div class="window" style="width: 600px">
+      <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Express Documentation</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+
+        <div class="window-body">
+          <div class="field-row-stacked" style="width: 100%">
+            <h1>Express</h1>
+            <h2>Server-Side Web Framework</h2>
+
+            <section class="doc-section">
+              <h3>Introduction</h3>
+              <p>
+                Express is a minimal and flexible Node.js web framework that
+                provides a robust set of features for building web and mobile
+                applications. It simplifies server setup and route handling.
+              </p>
+            </section>
+
+            <section class="doc-section">
+              <h3>Example Code</h3>
+              <p>
+                const express = require('express'); const app = express();
+                app.get('/', (req, res) => { res.send('Hello World!'); });
+                app.listen(3000, () => console.log('Server running on port
+                3000'));
+              </p>
+            </section>
+
+            <section class="doc-section">
+              <h3>Terminal Commands</h3>
+              <p>npm init -y npm install express</p>
+            </section>
+          </div>
+        </div>
+
+        <div class="status-bar">
+          <p class="status-bar-field">DocTop</p>
+          <p class="status-bar-field">v1.0</p>
+        </div>
+        <!-- invisible resize handles -->
+        <div class="resize-handle tl"></div>
+        <div class="resize-handle bl"></div>
+        <div class="resize-handle br"></div>
+      </div>
+      <div class="window">
         <div class="title-bar">
           <div class="title-bar-text">Express Documentation</div>
           <div class="title-bar-controls">
@@ -104,6 +154,6 @@
       updateClock();
     </script>
 
-    <script src="/js/index.js"></script>
+    <script src="/js/window.js"></script>
   </body>
 </html>
