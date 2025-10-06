@@ -14,11 +14,15 @@ body {
   padding: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* --------------  DESKTOP LAYOUT -------------- */
 
 .desktop {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 28px); /* full height minus taskbar */
   background: url("/images/win7-bliss.jpeg") center/cover no-repeat;
   position: relative;
   overflow: hidden;
@@ -55,10 +59,66 @@ body {
   border-radius: 4px;
 }
 
+/* -------------- WINDOW -------------- */
+.window {
+  position: absolute;
+  left: 150px;
+  min-width: 200px;
+  min-height: 150px;
+  max-height: 100%;
+  resize: none; /* disable browser default */
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.window-content,
+.window-body {
+  flex: 1 1 auto;
+  min-height: 0; /* CRUCIAL for flex scroll containers */
+  overflow: auto;
+}
+
+.title-bar,
+.window-header {
+  cursor: move; /* only this area drags */
+}
+
+/* Cursor hints for edges */
+.window .resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 5;
+}
+
+/* Bottom-right corner */
+.window .resize-handle.br {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+
+/* Bottom-left corner */
+.window .resize-handle.bl {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+}
+
+/* Top-left corner */
+.window .resize-handle.tl {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+}
+
 /* -------------- TASKBAR -------------- */
 
 .taskbar {
   position: absolute;
+  z-index: 100;
   bottom: 0;
   left: 0;
   width: 100%;
