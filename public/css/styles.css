@@ -18,6 +18,17 @@ body {
   display: none !important;
 }
 
+.limited-text {
+  display: -webkit-box; /* Required for line clamping */
+  -webkit-box-orient: vertical; /* Required for line clamping */
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add "..." when clipped */
+  white-space: normal; /* Allow wrapping across lines */
+  line-height: 1.2;
+  max-width: 100%;
+}
+
 /* --------------  DESKTOP LAYOUT -------------- */
 
 .desktop {
@@ -35,18 +46,13 @@ body {
   left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 /* Each desktop icon */
 .desktop-icon {
-  width: 80px;
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  box-sizing: border-box;
+  width: 110px;
+  height: 70px;
 }
 
 .desktop-icon img {
@@ -54,10 +60,23 @@ body {
   height: 38px;
 }
 
-.desktop-icon:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+.icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 
 /* -------------- WINDOW -------------- */
@@ -106,8 +125,8 @@ body {
   border-right: 1px solid #7b97e0;
 }
 
-.title-bar {
-  cursor: move; /* only this area drags */
+.window-body {
+  margin: 0 3px;
 }
 
 .window-body {
@@ -143,6 +162,120 @@ body {
   top: 0;
   left: 0;
   cursor: nw-resize;
+}
+
+/* -------------- Explorer -------------- */
+
+.window-body.explorer {
+  display: flex;
+}
+
+.window-body.explorer .folders-section {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder-section--header {
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folder-section--header img {
+  height: 1rem;
+}
+
+.folder-section--content {
+  margin-right: 0.3rem;
+  border-top: 2px solid rgb(198 198 187);
+  height: -webkit-fill-available;
+}
+.folder-section--content img {
+  margin-right: 2px;
+}
+
+.folder-section--content .tree-view {
+  border: none;
+  height: -webkit-fill-available;
+}
+
+.window-body.explorer .content-section {
+  flex: 3 3 auto;
+  min-width: 0;
+  background-color: white;
+}
+
+.tree-view img.tree-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  image-rendering: pixelated; /* gives that retro XP look */
+}
+
+.explorer-icons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0.5rem;
+}
+
+.explorer-icon {
+  width: auto;
+  height: 70px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  color: black;
+  text-shadow: none;
+}
+
+.explorer-icon:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.explorer-icon img {
+  height: 45px;
+  width: 45px;
+}
+/* -------------- Docs -------------- */
+
+.codeblock {
+  border: 1px solid #ccc;
+  padding: 6px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+/* -------------- FOLDER -------------- */
+
+.folder-view {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px;
+}
+
+.folder-view .file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  cursor: pointer;
+}
+
+.folder-view .file img {
+  width: 48px;
+  height: 48px;
+}
+
+.folder-view .file span {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 13px;
 }
 
 /* -------------- TASKBAR -------------- */
@@ -211,7 +344,7 @@ body {
   padding: 0 10px;
   font-size: 11px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: all 0.15s ease;
   min-width: 160px;
 }
@@ -254,7 +387,6 @@ body {
 
 /* 🖱️ Hover (slightly brighter) */
 .taskbar-item:hover {
-  filter: brightness(1.08);
 }
 
 .taskbar-clock {

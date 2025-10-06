@@ -1,4 +1,8 @@
 document.querySelectorAll(".window").forEach((win) => {
+  initializeWindowControls(win);
+});
+
+function initializeWindowControls(win) {
   makeWindowDraggable(win);
   makeResizable(win);
   handleFocusOnClick(win);
@@ -14,7 +18,7 @@ document.querySelectorAll(".window").forEach((win) => {
   if (closeBtn) closeBtn.addEventListener("click", () => closeWindow(win));
 
   addTaskbarItem(win);
-});
+}
 
 function handleFocusOnClick(win) {
   win.addEventListener("click", () => setWindowFocus(win));

@@ -1,0 +1,92 @@
+{
+  "folders": [
+    {
+      "id": "webdev",
+      "name": "Web Development",
+      "icon": "folder.png",
+      "files": ["nodejs", "express"],
+      "subfolders": [
+        {
+          "id": "backend",
+          "name": "Backend Tools",
+          "files": ["git"]
+        }
+      ]
+    }
+  ],
+  "docs": [
+    {
+      "id": "nodejs",
+      "title": "Node.js Basics",
+      "description": "An introduction to Node.js and its runtime environment.",
+      "tags": ["javascript", "backend", "runtime"],
+      "sections": [
+        {
+          "heading": "What is Node.js?",
+          "content": "Node.js is a JavaScript runtime built on Chrome's V8 engine. It allows JavaScript to run outside the browser and is commonly used to build servers and backend applications."
+        },
+        {
+          "heading": "Key Features",
+          "list": [
+            "Event-driven, non-blocking I/O model",
+            "Built on V8 JavaScript engine",
+            "Package management via npm",
+            "Cross-platform compatibility"
+          ]
+        },
+        {
+          "heading": "Common Terminal Commands",
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "code": "node app.js\nnpm init -y\nnpm install express"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "express",
+      "title": "Express Framework",
+      "description": "Express is a lightweight web framework for Node.js.",
+      "tags": ["nodejs", "framework", "webserver"],
+      "sections": [
+        {
+          "heading": "Installing Express",
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "code": "npm install express"
+            }
+          ]
+        },
+        {
+          "heading": "Basic Server Example",
+          "codeBlocks": [
+            {
+              "language": "javascript",
+              "code": "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello World');\n});\n\napp.listen(3000, () => console.log('Server running on port 3000'));"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "git",
+      "title": "Git & Version Control",
+      "description": "Overview of Git, repositories, and common commands.",
+      "tags": ["git", "version-control"],
+      "sections": [
+        {
+          "heading": "Common Commands",
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "code": "git init\ngit add .\ngit commit -m 'Initial commit'\ngit push origin main"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

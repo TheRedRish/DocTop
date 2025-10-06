@@ -11,131 +11,151 @@
     <div class="desktop">
       <!-- Desktop icons -->
       <div class="desktop-icons">
-        <div class="desktop-icon" data-doc="express">
-          <img
-            src="images/icons/documents.png"
-            alt="Express Documentation"
-            class="icon-image"
-          />
-          <span class="icon-label">Express</span>
+        <div
+          class="desktop-icon icon folder"
+          data-folder-id="webdev"
+          onclick="openFolderWindow('webdev')"
+        >
+          <img src="images/icons/folder-document.png" alt="Web Development" />
+          <span class="limited-text">Web Development</span>
+        </div>
+        <div
+          class="desktop-icon icon file"
+          data-doc-id="nodejs"
+          onclick="openDocWindow('nodejs')"
+        >
+          <img src="images/icons/notepad.png" alt="NodeJS" />
+          <span class="limited-text">Node.js</span>
+        </div>
+        <div
+          class="desktop-icon icon file"
+          data-doc-id="express"
+          onclick="openDocWindow('express')"
+        >
+          <img src="images/icons/notepad.png" alt="Express" />
+          <span>Express</span>
         </div>
       </div>
       <div
         class="window"
-        data-id="express"
+        data-id="exporer"
         style="
-          z-index: 28;
-          left: 57.9659px;
-          top: 44.9688px;
-          width: 956.446px;
-          height: 700.162px;
+          z-index: 16;
+          left: 57.9517px;
+          top: 104.96px;
+          width: 830.077px;
+          height: 593.153px;
         "
       >
         <div class="title-bar">
-          <div class="title-bar-text">Express Documentation</div>
+          <div class="title-bar-text">Node.js Basics</div>
           <div class="title-bar-controls">
-            <button aria-label="Minimize"></button>
-            <button aria-label="Maximize"></button>
-            <button aria-label="Close"></button>
+            <button aria-label="Minimize"></button
+            ><button aria-label="Maximize"></button
+            ><button aria-label="Close"></button>
           </div>
         </div>
-
-        <div class="window-body">
-          <div class="field-row-stacked" style="width: 100%">
-            <h1>Express</h1>
-            <h2>Server-Side Web Framework</h2>
-
-            <section class="doc-section">
-              <h3>Introduction</h3>
-              <p>
-                Express is a minimal and flexible Node.js web framework that
-                provides a robust set of features for building web and mobile
-                applications. It simplifies server setup and route handling.
-              </p>
-            </section>
-
-            <section class="doc-section">
-              <h3>Example Code</h3>
-              <p>
-                const express = require('express'); const app = express();
-                app.get('/', (req, res) => { res.send('Hello World!'); });
-                app.listen(3000, () => console.log('Server running on port
-                3000'));
-              </p>
-            </section>
-
-            <section class="doc-section">
-              <h3>Terminal Commands</h3>
-              <p>npm init -y npm install express</p>
-            </section>
+        <div class="window-body explorer">
+          <div class="folders-section">
+            <div class="folder-section--header">
+              <span>Folders</span>
+              <img src="images/icons/close-x.svg" />
+            </div>
+            <div class="folder-section--content">
+              <ul class="tree-view">
+                <li>
+                  <details open>
+                    <summary>
+                      <img
+                        src="/images/icons/folder-explorer.png"
+                        alt=""
+                        class="tree-icon"
+                      />
+                      Web Development
+                    </summary>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img
+                            src="/images/icons/notepad.png"
+                            alt=""
+                            class="tree-icon"
+                          />
+                          Node.js
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img
+                            src="/images/icons/notepad.png"
+                            alt=""
+                            class="tree-icon"
+                          />
+                          Express
+                        </a>
+                      </li>
+                      <li>
+                        <details>
+                          <summary>
+                            <img
+                              src="/images/icons/folder-explorer.png"
+                              alt=""
+                              class="tree-icon"
+                            />
+                            Backend Tools
+                          </summary>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <img
+                                  src="/images/icons/notepad.png"
+                                  alt=""
+                                  class="tree-icon"
+                                />
+                                Git
+                              </a>
+                            </li>
+                          </ul>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-section">
+            <div class="explorer-icons">
+              <div
+                class="explorer-icon icon folder"
+                data-folder-id="webdev"
+                onclick="openFolderWindow('webdev')"
+              >
+                <img
+                  src="images/icons/folder-document.png"
+                  alt="Web Development"
+                />
+                <span class="limited-text">Web Development</span>
+              </div>
+              <div
+                class="explorer-icon icon file"
+                data-doc-id="nodejs"
+                onclick="openDocWindow('nodejs')"
+              >
+                <img src="images/icons/notepad.png" alt="NodeJS" />
+                <span class="limited-text">Node.js</span>
+              </div>
+              <div
+                class="explorer-icon icon file"
+                data-doc-id="express"
+                onclick="openDocWindow('express')"
+              >
+                <img src="images/icons/notepad.png" alt="Express" />
+                <span>Express</span>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="status-bar">
-          <p class="status-bar-field">DocTop</p>
-          <p class="status-bar-field">v1.0</p>
-        </div>
-        <!-- invisible resize handles -->
-        <div class="resize-handle tl"></div>
-        <div class="resize-handle bl"></div>
-        <div class="resize-handle br"></div>
-      </div>
-      <div
-        class="window"
-        data-id="express2"
-        style="
-          z-index: 33;
-          left: 729.98px;
-          top: 252.983px;
-          width: 989.454px;
-          height: 464.17px;
-        "
-      >
-        <div class="title-bar">
-          <div class="title-bar-text">Express Documentation</div>
-          <div class="title-bar-controls">
-            <button aria-label="Minimize"></button>
-            <button aria-label="Maximize"></button>
-            <button aria-label="Close"></button>
-          </div>
-        </div>
-
-        <div class="window-body">
-          <div class="field-row-stacked" style="width: 100%">
-            <h1>Express</h1>
-            <h2>Server-Side Web Framework</h2>
-
-            <section class="doc-section">
-              <h3>Introduction</h3>
-              <p>
-                Express is a minimal and flexible Node.js web framework that
-                provides a robust set of features for building web and mobile
-                applications. It simplifies server setup and route handling.
-              </p>
-            </section>
-
-            <section class="doc-section">
-              <h3>Example Code</h3>
-              <p>
-                const express = require('express'); const app = express();
-                app.get('/', (req, res) => { res.send('Hello World!'); });
-                app.listen(3000, () => console.log('Server running on port
-                3000'));
-              </p>
-            </section>
-
-            <section class="doc-section">
-              <h3>Terminal Commands</h3>
-              <p>npm init -y npm install express</p>
-            </section>
-          </div>
-        </div>
-
-        <div class="status-bar">
-          <p class="status-bar-field">DocTop</p>
-          <p class="status-bar-field">v1.0</p>
-        </div>
-        <!-- invisible resize handles -->
         <div class="resize-handle tl"></div>
         <div class="resize-handle bl"></div>
         <div class="resize-handle br"></div>
@@ -165,5 +185,6 @@
     </script>
 
     <script src="/js/window.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>
