@@ -20,6 +20,7 @@
   "keywords": [
     "Notes"
   ],
+  "type": "module",
   "author": "",
   "license": "MIT",
   "bugs": {

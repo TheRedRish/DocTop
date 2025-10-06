@@ -217,7 +217,7 @@ body {
 }
 
 /* 🟦 Inactive (raised / mountain) */
-.taskbar-item.inactive {
+.taskbar-item {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.4) 0%,

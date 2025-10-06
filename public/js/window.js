@@ -1,6 +1,7 @@
 document.querySelectorAll(".window").forEach((win) => {
   makeWindowDraggable(win);
   makeResizable(win);
+  handleFocusOnClick(win);
 
   const minimizeBtn = win.querySelector('[aria-label="Minimize"]');
   const maximizeBtn = win.querySelector('[aria-label="Maximize"]');
@@ -11,7 +12,13 @@ document.querySelectorAll(".window").forEach((win) => {
   if (maximizeBtn)
     maximizeBtn.addEventListener("click", () => toggleMaximize(win));
   if (closeBtn) closeBtn.addEventListener("click", () => closeWindow(win));
+
+  addTaskbarItem(win);
 });
+
+function handleFocusOnClick(win) {
+  win.addEventListener("click", () => setWindowFocus(win));
+}
 
 function makeWindowDraggable(win) {
   const header = win.querySelector(".title-bar, .window-header");
@@ -33,7 +40,7 @@ function makeWindowDraggable(win) {
     startLeft = rect.left;
     startTop = rect.top;
 
-    bringToFront(win);
+    setWindowFocus(win);
     document.body.style.userSelect = "none";
   });
 
@@ -82,7 +89,7 @@ function makeResizable(win) {
       startLeft = rect.left;
       startTop = rect.top;
 
-      bringToFront(win);
+      setWindowFocus(win);
       document.body.style.userSelect = "none";
     });
   });
@@ -122,7 +129,8 @@ function makeResizable(win) {
 
 function minimizeWindow(win) {
   win.style.display = "none";
-  // You can later link this to a taskbar icon to restore the window
+
+  highlightTaskbarItem(win);
 }
 
 function toggleMaximize(win) {
@@ -152,10 +160,77 @@ function toggleMaximize(win) {
 }
 
 function closeWindow(win) {
-  win.remove(); // or use: win.style.display = "none";
+  removeTaskbarItem(win);
+  win.remove();
 }
+
+function setWindowFocus(win) {
+  bringToFront(win);
+  highlightTaskbarItem(win);
+}
+
 let topZ = 10;
 function bringToFront(win) {
   topZ += 1;
   win.style.zIndex = topZ;
+}
+
+// =============================
+// Taskbar Management
+// =============================
+
+function addTaskbarItem(win) {
+  const taskbar = document.querySelector(".taskbar-windows");
+  if (!taskbar) return;
+
+  const title = win.querySelector(".title-bar-text")?.textContent || "Untitled";
+  const id = win.dataset.id || Date.now().toString();
+  win.dataset.id = id; // ensure ID exists for lookup
+
+  // check if already exists
+  if (document.querySelector(`.taskbar-item[data-id="${id}"]`)) return;
+
+  const button = document.createElement("div");
+  button.classList.add("taskbar-item");
+  button.dataset.id = id;
+  button.textContent = title;
+
+  button.addEventListener("click", () => {
+    // toggle window visibility / focus
+    if (win.style.display === "none") {
+      restoreWindow(win);
+    } else {
+      setWindowFocus(win);
+    }
+  });
+
+  taskbar.appendChild(button);
+  highlightTaskbarItem(win);
+}
+
+function removeTaskbarItem(win) {
+  const id = win.dataset.id;
+  const item = document.querySelector(`.taskbar-item[data-id="${id}"]`);
+  if (item) item.remove();
+}
+
+// restore a minimized window
+function restoreWindow(win) {
+  win.style.display = "";
+  setWindowFocus(win);
+  highlightTaskbarItem(win);
+}
+
+// highlight the active window’s taskbar button
+function highlightTaskbarItem(win) {
+  const id = win.dataset.id;
+  const isVisible = win.style.display !== "none";
+
+  document.querySelectorAll(".taskbar-item").forEach((btn) => {
+    if (isVisible && btn.dataset.id === id) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
 }
