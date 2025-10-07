@@ -3,7 +3,7 @@
     {
       "id": "webdev",
       "name": "Web Development",
-      "icon": "folder.png",
+      "icon": "/images/icons/folder-document.png",
       "files": ["nodejs", "express"],
       "subfolders": [
         {
@@ -14,7 +14,7 @@
       ]
     }
   ],
-  "docs": [
+  "files": [
     {
       "id": "nodejs",
       "title": "Node.js Basics",

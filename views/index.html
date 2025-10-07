@@ -8,158 +8,9 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <div class="desktop">
+    <div class="desktop" id="desktop">
       <!-- Desktop icons -->
-      <div class="desktop-icons">
-        <div
-          class="desktop-icon icon folder"
-          data-folder-id="webdev"
-          onclick="openFolderWindow('webdev')"
-        >
-          <img src="images/icons/folder-document.png" alt="Web Development" />
-          <span class="limited-text">Web Development</span>
-        </div>
-        <div
-          class="desktop-icon icon file"
-          data-doc-id="nodejs"
-          onclick="openDocWindow('nodejs')"
-        >
-          <img src="images/icons/notepad.png" alt="NodeJS" />
-          <span class="limited-text">Node.js</span>
-        </div>
-        <div
-          class="desktop-icon icon file"
-          data-doc-id="express"
-          onclick="openDocWindow('express')"
-        >
-          <img src="images/icons/notepad.png" alt="Express" />
-          <span>Express</span>
-        </div>
-      </div>
-      <div
-        class="window"
-        data-id="exporer"
-        style="
-          z-index: 16;
-          left: 57.9517px;
-          top: 104.96px;
-          width: 830.077px;
-          height: 593.153px;
-        "
-      >
-        <div class="title-bar">
-          <div class="title-bar-text">Node.js Basics</div>
-          <div class="title-bar-controls">
-            <button aria-label="Minimize"></button
-            ><button aria-label="Maximize"></button
-            ><button aria-label="Close"></button>
-          </div>
-        </div>
-        <div class="window-body explorer">
-          <div class="folders-section">
-            <div class="folder-section--header">
-              <span>Folders</span>
-              <img src="images/icons/close-x.svg" />
-            </div>
-            <div class="folder-section--content">
-              <ul class="tree-view">
-                <li>
-                  <details open>
-                    <summary>
-                      <img
-                        src="/images/icons/folder-explorer.png"
-                        alt=""
-                        class="tree-icon"
-                      />
-                      Web Development
-                    </summary>
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <img
-                            src="/images/icons/notepad.png"
-                            alt=""
-                            class="tree-icon"
-                          />
-                          Node.js
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img
-                            src="/images/icons/notepad.png"
-                            alt=""
-                            class="tree-icon"
-                          />
-                          Express
-                        </a>
-                      </li>
-                      <li>
-                        <details>
-                          <summary>
-                            <img
-                              src="/images/icons/folder-explorer.png"
-                              alt=""
-                              class="tree-icon"
-                            />
-                            Backend Tools
-                          </summary>
-                          <ul>
-                            <li>
-                              <a href="#">
-                                <img
-                                  src="/images/icons/notepad.png"
-                                  alt=""
-                                  class="tree-icon"
-                                />
-                                Git
-                              </a>
-                            </li>
-                          </ul>
-                        </details>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="content-section">
-            <div class="explorer-icons">
-              <div
-                class="explorer-icon icon folder"
-                data-folder-id="webdev"
-                onclick="openFolderWindow('webdev')"
-              >
-                <img
-                  src="images/icons/folder-document.png"
-                  alt="Web Development"
-                />
-                <span class="limited-text">Web Development</span>
-              </div>
-              <div
-                class="explorer-icon icon file"
-                data-doc-id="nodejs"
-                onclick="openDocWindow('nodejs')"
-              >
-                <img src="images/icons/notepad.png" alt="NodeJS" />
-                <span class="limited-text">Node.js</span>
-              </div>
-              <div
-                class="explorer-icon icon file"
-                data-doc-id="express"
-                onclick="openDocWindow('express')"
-              >
-                <img src="images/icons/notepad.png" alt="Express" />
-                <span>Express</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="resize-handle tl"></div>
-        <div class="resize-handle bl"></div>
-        <div class="resize-handle br"></div>
-      </div>
+      <div class="desktop-icons"></div>
     </div>
     <!-- Taskbar -->
     <div class="taskbar">
@@ -184,7 +35,6 @@
       updateClock();
     </script>
 
-    <script src="/js/window.js"></script>
-    <script src="/js/index.js"></script>
+    <script type="module" src="/js/index.js"></script>
   </body>
 </html>

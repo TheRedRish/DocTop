@@ -19,7 +19,7 @@ app.get("/api/docs", (req, res) => {
 
 app.get("/api/docs/:id", (req, res) => {
   const data = JSON.parse(fs.readFileSync("./data/docs.json", "utf8"));
-  const doc = data.docs.find((d) => d.id === req.params.id);
+  const doc = data.files.find((d) => d.id === req.params.id);
   if (!doc) return res.status(404).json({ error: "Document not found" });
   res.json(doc);
 });
